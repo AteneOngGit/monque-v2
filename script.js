@@ -1,0 +1,3 @@
+// Re-adding the script.js file to the repository
+// ...existing code from the previous script.js file...
+// This file contains all the JavaScript logic for the MonQue application.
