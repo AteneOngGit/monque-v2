@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonQue Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-gradient-to-r from-green-400 to-green-600 text-white py-4 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-2xl font-bold">MonQue</h1>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-gray-200">Home</a></li>
+                <li><a href="#tracker" class="hover:text-gray-200">Tracker</a></li>
+                <li><a href="#ai-advice" class="hover:text-gray-200">AI Advice</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tracker" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8">Track Your Finances</h2>
+                <form id="finance-form" class="bg-gray-100 p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="date" id="date" required class="w-full p-3 border border-gray-300 rounded-lg">
+                        <input type="text" id="description" placeholder="Description" required class="w-full p-3 border border-gray-300 rounded-lg">
+                        <input type="number" id="amount" placeholder="Amount" required class="w-full p-3 border border-gray-300 rounded-lg">
+                        <select id="type" class="w-full p-3 border border-gray-300 rounded-lg">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                        <select id="transaction-currency" required class="w-full p-3 border border-gray-300 rounded-lg">
+                            <option value="" disabled selected hidden>Select Currency</option>
+                            <!-- Currencies will be dynamically populated -->
+                        </select>
+                        <select id="category" class="w-full p-3 border border-gray-300 rounded-lg">
+                            <option value="food">Food</option>
+                            <option value="rent">Rent</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="mt-4 bg-green-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 transition">Add</button>
+                </form>
+
+                <table id="transactions-table" class="mt-8 w-full bg-white rounded-lg shadow-md overflow-hidden">
+                    <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+                        <tr>
+                            <th class="py-3 px-4">Date</th>
+                            <th class="py-3 px-4">Description</th>
+                            <th class="py-3 px-4">Type</th>
+                            <th class="py-3 px-4">Amount</th>
+                            <th class="py-3 px-4">Currency</th>
+                            <th class="py-3 px-4">Converted Amount</th>
+                            <th class="py-3 px-4">Category</th>
+                            <th class="py-3 px-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm">
+                        <!-- Transactions will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="ai-advice" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">Personalized Financial Advice</h2>
+                <p id="ai-tips" class="text-lg text-gray-600">Let AI guide your financial journey!</p>
+            </div>
+        </section>
+
+        <section id="currency-preference" class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">Set Your Preferred Currency</h2>
+                <select id="preferred-currency" class="w-full max-w-xs p-3 border border-gray-300 rounded-lg">
+                    <!-- Currencies will be dynamically populated -->
+                </select>
+                <p class="mt-4 text-gray-600">Your preferred currency will be used for statistical analysis and display.</p>
+            </div>
+        </section>
+
+        <section id="add-category" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">Add New Category</h2>
+                <form id="add-category-form" class="max-w-md mx-auto bg-gray-100 p-6 rounded-lg shadow-md">
+                    <input type="text" id="new-category" placeholder="New Category" required class="w-full mb-4 p-3 border border-gray-300 rounded-lg">
+                    <button type="submit" class="bg-green-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 transition">Add Category</button>
+                </form>
+                <p id="category-status" class="mt-4 text-gray-600"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 MonQue. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
